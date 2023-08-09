@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title></title>
+ 
+ <style type="text/css">
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+  
+    .container {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+    }
+  
+    #txt {
+      width: 150px;
+      height: 50px;
+      background-color: lightblue;
+      font-size: 18px;
+      text-align: center;
+      border: none;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+  
+    #new {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+  
+    .btn {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  
+    .btn:hover {
+      background-color: #0056b3;
+    }
+   </style>
+ 
+</head>
+<body>
+ <script type="text/javascript">
+  function captcha()
+  {
+   var ch=['a','b','c','d','e','f','g','A','B','C','D','E','F','G','1','2','3','4','5','6','7','8','9','0'];
+   var a=ch[Math.floor(Math.random()*24)];
+   var b=ch[Math.floor(Math.random()*24)];
+   var c=ch[Math.floor(Math.random()*24)];
+   var d=ch[Math.floor(Math.random()*24)];
+   var e=ch[Math.floor(Math.random()*24)];
+   var total=a+b+c+d+e; 
+   document.getElementById('txt').value=total;
+  }
+
+   function entrNew(){
+    var newTxt = document.getElementById('new').value;
+    var total = document.getElementById('txt').value;
+    
+   
+   if(total==newTxt){
+    
+    window.open("intropage.html")
+   }
+   else{
+    document.write("You entered wrong Captcha");
+   }
+   }
+  
+ </script>
+<div class="container">
+    <h2>Captcha Generator</h2>
+    <input type="text" name="txt" id="txt" readonly/>
+    <br>
+    <button class="btn" onclick="captcha()">Generate Captcha</button>
+    <br><br>
+    <input type="text" placeholder="Enter the Captcha" name="newTxt" id="new">
+    <br><br>
+    <button class="btn" onclick="entrNew()">Submit</button>
+  </div>
+</body>
+</html>
